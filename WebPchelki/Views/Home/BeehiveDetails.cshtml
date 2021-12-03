@@ -1,0 +1,53 @@
+﻿@model WebPchelki.Models.Entities.Beehive
+@{
+    ViewBag.Title = Model.Name;
+}
+<h2>Мёд @Model.Name</h2>
+<div>
+    <a asp-action="BeehiveEdit" asp-controller="Home" asp-route-id="@Model.Id">Изменить</a>
+    <a asp-action="BeehiveDelete" asp-controller="Home" asp-route-id="@Model.Id">Удалить</a>
+    <dl class="dl-horizontal">
+        <dt>Идентификатор</dt>
+        <dd>@Model.Id</dd>
+
+        <dt>Название</dt>
+        <dd>@Model.Name</dd>
+
+        <dt>Кол-во</dt>
+        <dd>@Model.Size</dd>
+
+        dt>Кол-во</dt>
+        <dd>@Model.FrameSize</dd>
+
+        dt>Кол-во</dt>
+        <dd>@Model.FrameNumber</dd>
+
+        <dt>Информация</dt>
+        <dd><p></p></dd>
+    </dl>
+    <dl class="dl-horizontal">
+        @foreach (var comment in Model.CommentBeehives)
+        {
+            <dt>Коммент</dt>
+
+            <dd>@comment.Description</dd>
+            <dd>@comment.Date</dd>
+            <dd><a asp-action="DeleteCommentBeehive" asp-controller="Home" asp-route-comId="@comment.Id" asp-route-beehId="@Model.Id">Удалить</a></dd>
+        }
+    </dl>
+
+    <form asp-action="CreateCommentBeehive" asp-controller="Home">
+        <div class="form-group">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <b>Оставить коммент</b>
+            <textarea type="text" name="description" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Отправить" class="btn btn-default" />
+        </div>
+    </form>
+
+    <form asp-controller="Home" asp-action="BeehivePage">
+        <input type="submit" value="Назад" />
+    </form>
+</div>

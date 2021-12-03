@@ -1,0 +1,15 @@
+﻿@model IEnumerable<WebPchelki.Models.Entities.Product>
+@{
+    ViewBag.Title = "Продукты";
+}
+
+<form asp-action="Page" asp-controller="Home">
+    <a asp-action="Add" asp-controller="Home">Добавить</a>
+    <dl class="dl-horizontal">
+        @foreach (var item in Model)
+        {
+            <dt>@item.Name</dt>
+            <dd><a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id">Подробнее</a></dd>
+        }
+    </dl>
+</form>

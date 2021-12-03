@@ -1,0 +1,18 @@
+﻿@model WebPchelki.Models.Entities.Bee
+@{
+    ViewBag.Title = "Добавление пчелы";
+}
+
+<form asp-action="BeeAdd" asp-controller="Home">
+    <div class="form-group">
+        <p>Название</p>
+        <input type="text" name="name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <p>Продуктивность, кг/год мёда</p>
+        <input type="text" name="productivity" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Добавить" class="btn btn-default" />
+    </div>
+</form>

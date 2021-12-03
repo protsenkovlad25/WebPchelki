@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Главная страница";
+}
+
+<style type="text/css">
+    #navbar ul {
+        display: none;
+        background-color: #FFFFE0;
+        position: absolute;
+        top: 100%;
+    }
+
+    #navbar li:hover ul {
+        display: block;
+    }
+
+    #navbar, #navbar ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    #navbar {
+        background-color: #ff981d;
+    }
+
+        #navbar li {
+            float: left;
+            position: relative;
+        }
+
+            #navbar li a {
+                width: 100px;
+                color: #000;
+                text-decoration: none;
+                text-align: center;
+                cursor: pointer;
+                text-shadow: 1px 1px #ff981d;
+            }
+
+            #sis { padding: 20px; }
+
+    .main-menu > ul > li > ul > li > a {
+        display: block;
+        padding: 6px;
+        width: 100px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+        #navbar ul li {
+            float: none;
+        }
+
+    #navbar li:hover {
+        background-color: #FFFFE0;
+    }
+
+    #navbar ul li:hover {
+        background-color: #ff981d;
+    }
+
+    .main-menu {
+        background: #ff981d;
+        padding: 10px 19%;
+        margin: 0 -19%;
+        font-family: 'Exo 2', sans-serif;
+    }
+
+        .main-menu:after {
+            content: '';
+            display: block;
+            clear: both;
+            visibility: hidden;
+        }
+
+    @@font-face {
+        font-family: '19024';
+        src: local('19024'), url('/fonts/19024.ttf') format('truetype');
+    }
+</style>
+<body>
+    <nav class="main-menu">
+        <ul id="navbar">
+            <li>
+                <a id="sis" asp-action="Page" asp-controller="Home">Пчелопродукция</a>
+                <ul>
+                    <li><a asp-action="Page" asp-controller="Home" asp-route-page="1">Мёд</a></li>
+                    <li><a asp-action="Page" asp-controller="Home" asp-route-page="2">Воск</a></li>
+                    <li><a asp-action="Page" asp-controller="Home" asp-route-page="3">Перга</a></li>
+                    <li><a asp-action="Page" asp-controller="Home" asp-route-page="4">Забрус</a></li>
+                    <li><a asp-action="Page" asp-controller="Home" asp-route-page="5">Прополис</a></li>
+                    <li><a asp-action="Page" asp-controller="Home" asp-route-page="6">Маточное молочко</a></li>
+                    <li><a asp-action="Page" asp-controller="Home" asp-route-page="7">Пчелиный яд</a></li>
+                    <li><a asp-action="Page" asp-controller="Home" asp-route-page="8">Мерва</a></li>
+                    <li><a asp-action="Page" asp-controller="Home" asp-route-page="9">Пыльца</a></li>
+                    <li><a asp-action="Page" asp-controller="Home" asp-route-page="10">Гомогенат</a></li>
+                </ul>
+            </li>
+            <li><a id="sis" asp-action="BeePage" asp-controller="Home">Пчёлы</a></li>
+            <li><a id="sis" asp-action="BeehivePage" asp-controller="Home">Ульи</a></li>
+            <li><a id="sis" asp-action="EquipmentPage" asp-controller="Home">Инструменты</a></li>
+        </ul>
+    </nav>
+</body>

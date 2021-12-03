@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebPchelki.Models.Entities.Client>
+@{
+    ViewBag.Title = "Все клиенты";
+}
+
+<form asp-action="ClientsPage" asp-controller="home">
+    <a asp-action="Create">Добавить пользователя</a>
+    <table class="table">
+        <tr>
+            <td>Фамилия</td>
+            <td>Имя</td>
+            <td>Отчество</td>
+            <td>Телефон</td>
+            <td>Email</td>
+            <td>Дата рождения</td>
+            <td>Город</td>
+            <td>Улица</td>
+            <td>Дом</td>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SecondName</td>
+                <td>@item.FirstName</td>
+                <td>@item.FatherName</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.Email</td>
+                <td>@item.DateBirth</td>
+                <td>@item.Town</td>
+                <td>@item.Street</td>
+                <td>@item.Home</td>
+            </tr>
+            <tr>
+                <td>@item.SecondName</td>
+                <td>
+                    <a asp-action="Details" asp-controller="Home" asp-route-id="@item.Id">Подробнее</a> |
+                    <a asp-action="Edit"    asp-controller="Home" asp-route-id="@item.Id">Изменить</a> |
+                    <a asp-action="Delete"  asp-controller="Home" asp-route-id="@item.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </table>
+</form>

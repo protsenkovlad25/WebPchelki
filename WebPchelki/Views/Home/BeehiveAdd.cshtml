@@ -1,0 +1,25 @@
+﻿@model WebPchelki.Models.Entities.Beehive
+@{
+    ViewBag.Title = "Добавление улья";
+}
+<form asp-action="BeehiveAdd" asp-controller="Home">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Название</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Size" class="control-label">Размер</label>
+        <input type="number" asp-for="Size" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FrameSize" class="control-label">Размер рамки</label>
+        <input type="number" asp-for="FrameSize" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FrameNumber" class="control-label">Кол-во рамок</label>
+        <input type="number" asp-for="FrameNumber" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Добавить" class="btn btn-default" />
+    </div>
+</form>

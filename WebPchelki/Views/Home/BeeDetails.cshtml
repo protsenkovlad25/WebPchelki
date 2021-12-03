@@ -1,0 +1,47 @@
+﻿@model WebPchelki.Models.Entities.Bee
+@{
+    ViewBag.Title = Model.Name;
+}
+<h2>Мёд @Model.Name</h2>
+<div>
+    <a asp-action="BeeEdit" asp-controller="Home" asp-route-id="@Model.Id">Изменить</a>
+    <a asp-action="BeeDelete" asp-controller="Home" asp-route-id="@Model.Id">Удалить</a>
+    <dl class="dl-horizontal">
+        <dt>Идентификатор</dt>
+        <dd>@Model.Id</dd>
+
+        <dt>Название</dt>
+        <dd>@Model.Name</dd>
+
+        <dt>Кол-во</dt>
+        <dd>@Model.Productivity</dd>
+
+        <dt>Информация</dt>
+        <dd><p></p></dd>
+    </dl>
+    <dl class="dl-horizontal">
+        @foreach (var comment in Model.CommentBees)
+        {
+            <dt>Коммент</dt>
+
+            <dd>@comment.Description</dd>
+            <dd>@comment.Date</dd>
+            <dd><a asp-action="DeleteCommentBee" asp-controller="Home" asp-route-comId="@comment.Id" asp-route-beeId="@Model.Id">Удалить</a></dd>
+        }
+    </dl>
+
+    <form asp-action="CreateCommentBee" asp-controller="Home">
+        <div class="form-group">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <b>Оставить коммент</b>
+            <textarea type="text" name="description" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Отправить" class="btn btn-default" />
+        </div>
+    </form>
+
+    <form asp-controller="Home" asp-action="BeePage">
+        <input type="submit" value="Назад" />
+    </form>
+</div>

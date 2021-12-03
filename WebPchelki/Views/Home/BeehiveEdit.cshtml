@@ -1,0 +1,25 @@
+﻿@model WebPchelki.Models.Entities.Beehive
+@{
+    ViewBag.Title = "Редактирование улья";
+}
+<form asp-action="BeehiveEdit" asp-controller="Home" asp-route-id="@Model.Id" method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Название</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Size" class="control-label">Размер улья</label>
+        <input type="text" asp-for="Size" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FrameSize" class="control-label">Размер рамки</label>
+        <input type="text" asp-for="FrameSize" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="FrameNumber" class="control-label">Кол-во рамок</label>
+        <input type="text" asp-for="FrameNumber" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Сохранить" class="btn btn-default" />
+    </div>
+</form>
