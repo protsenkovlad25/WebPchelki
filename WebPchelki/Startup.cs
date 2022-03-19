@@ -25,9 +25,9 @@ namespace WebPchelki
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<PchelkiContext>(options => 
-                options.UseMySql("Server=localhost;user=root;password=admin;Database=PchelkiDb;",
-                new MySqlServerVersion(new Version(8, 0, 25, 0))));
+            services.AddDbContext<PchelkiContext>(x => x.UseSqlServer(
+                @"Server = (local); Database = Pchelki; Trusted_Connection = True;"
+                ));
             services.AddControllersWithViews();
         }
 

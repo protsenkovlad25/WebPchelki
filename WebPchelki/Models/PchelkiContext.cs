@@ -22,18 +22,15 @@ namespace WebPchelki.Models
         public DbSet<Beehive> Beehives { get; set; }
         #endregion
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=(local);Database=Pchelki;Trusted_Connection=True;");
+        }
+
         public PchelkiContext(DbContextOptions<PchelkiContext> options)
             : base(options)
         {
-            //Database.EnsureDeleted();
             Database.EnsureCreated();
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseMySql("Server=localhost;user=root;password=admin;Database=PchelkiDb;",
-                new MySqlServerVersion(new Version(8, 0, 25, 0))
-                );
         }
     }
 }
